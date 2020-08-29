@@ -1,4 +1,4 @@
-module github.com/displague/packet-project
+module github.com/displague/packet-sweeper-action
 
 go 1.14
 

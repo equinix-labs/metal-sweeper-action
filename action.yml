@@ -1,0 +1,21 @@
+---
+# action.yml
+name: 'Packet Sweeper'
+description: 'Packet action to delete a project including all server resources in that project'
+inputs:
+  keep:
+    description: 'Should the project be preserved after the contents are deleted?'
+    required: false
+    default: false
+  projectID:
+    description: 'Packet Project UUID'
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  env:
+    PROJECT_ID: ${{ inputs.projectID }}
+brading:
+  icon: 'trash-2'
+  color: 'green'
+
