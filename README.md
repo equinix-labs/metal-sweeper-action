@@ -1,2 +1,3 @@
-# packet-project
-Experimental Github Action for Packet Project manager
+# packet-sweeper
+
+Experimental Github Action for managing [Packet](https://packet.com) Projects.
