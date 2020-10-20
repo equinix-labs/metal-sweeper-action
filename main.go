@@ -34,7 +34,7 @@ func main() {
 
 	for _, device := range devices {
 		fmt.Println("Deleting", device.Hostname)
-		if _, err := client.Devices.Delete(device.ID); err != nil {
+		if _, err := client.Devices.Delete(device.ID, true); err != nil {
 			panic(err)
 		}
 	}
