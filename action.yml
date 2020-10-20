@@ -1,21 +1,21 @@
 ---
 # action.yml
-name: 'Packet Sweeper'
-description: 'Packet action to delete a project including all server resources in that project'
+name: 'Equinix Metal Sweeper'
+description: 'The Equinix Metal Sweeper action deletes a project including all server resources in that project'
 inputs:
   keep:
     description: 'Should the project be preserved after the contents are deleted?'
     required: false
-    default: false
+    default: 'false'
   projectID:
-    description: 'Packet Project UUID'
+    description: 'Equinix Metal Project UUID'
     required: true
 runs:
   using: 'docker'
   image: 'Dockerfile'
   env:
     PROJECT_ID: ${{ inputs.projectID }}
-brading:
+branding:
   icon: 'trash-2'
   color: 'green'
 
