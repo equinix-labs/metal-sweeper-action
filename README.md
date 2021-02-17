@@ -16,8 +16,9 @@ See the [Equinix Metal Actions Example](https://github.com/displague/metal-actio
 
 With | Environment variable | Description
 --- | --- | ---
-`userToken` | `PACKET_AUTH_TOKEN` | (required) A Equinix Metal User API Token
-`projectID` | - | (required) Project ID that will be deleted.
+`userToken` | `METAL_AUTH_TOKEN` | (required) A Equinix Metal User API Token
+`projectID` | `METAL_PROJECT_ID` | (required) Project ID that will be deleted.
+`keepProject` | `KEEP_PROJECT` | When set to the default of `false`, the project will be deleted after all project contents are deleted.
 
 ## Output
 

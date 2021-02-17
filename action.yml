@@ -10,11 +10,16 @@ inputs:
   projectID:
     description: 'Equinix Metal Project UUID'
     required: true
+  authToken:
+    description: 'Equinix Metal API Auth Token'
+    required: true
 runs:
   using: 'docker'
   image: 'Dockerfile'
   env:
-    PROJECT_ID: ${{ inputs.projectID }}
+    METAL_PROJECT_ID: ${{ inputs.projectID }}
+    KEEP_PROJECT: ${{ inputs.keepProject }}
+    METAL_AUTH_TOKEN: ${{ inputs.authToken }}
 branding:
   icon: 'trash-2'
   color: 'green'
