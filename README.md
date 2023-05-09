@@ -3,14 +3,14 @@
 Experimental Github Action for managing [Equinix Metal](https://metal.equinix.com) Projects.
 
 > :bulb: See also:
-> * [equinix-metal-project](https://github.com/displague/metal-project-action) action
-> * [equinix-metal-examples](https://github.com/displague/metal-actions-example) examples
+> * [equinix-metal-project](https://github.com/equinix-labs/metal-project-action) action
+> * [equinix-metal-examples](https://github.com/equinix-labs/metal-actions-example) examples
 
 Given a Equinix Metal User API Token and a Project ID, the project will be deleted with all resources in that project.
 
-Create a project with the [Equinix Metal Project Action](https://github.com/displague/metal-project-action).
+Create a project with the [Equinix Metal Project Action](https://github.com/equinix-labs/metal-project-action).
 
-See the [Equinix Metal Actions Example](https://github.com/displague/metal-actions-example) for usage examples.
+See the [Equinix Metal Actions Example](https://github.com/equinix-labs/metal-actions-example) for usage examples.
 
 ## Input
 

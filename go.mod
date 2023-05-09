@@ -1,4 +1,4 @@
-module github.com/displague/metal-sweeper-action
+module github.com/equinix-labs/metal-sweeper-action
 
 go 1.14
 
