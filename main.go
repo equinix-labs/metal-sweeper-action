@@ -21,7 +21,7 @@ const (
 	keepProjectEnv = "KEEP_PROJECT"
 
 	consumerToken = "metal-sweeper-action"
-	uaFmt         = "metal-sweeper-action/%s %s"
+	uaFmt         = "gh-action-metal-sweeper/%s %s"
 )
 
 func main() {
