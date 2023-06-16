@@ -19,20 +19,25 @@ const (
 	tokenEnv       = "METAL_AUTH_TOKEN"
 	projectEnv     = "METAL_PROJECT_ID"
 	keepProjectEnv = "KEEP_PROJECT"
-
-	consumerToken = "metal-sweeper-action"
-	uaFmt         = "gh-action-metal-sweeper/%s %s"
+	uaFmt          = "gh-action-metal-sweeper/%s %s"
 )
 
 func main() {
 	authToken := os.Getenv(tokenEnv)
+	projectID := os.Getenv(projectEnv)
+
+	if authToken == "" {
+		log.Fatal("You must provide an auth token in `env.METAL_AUTH_TOKEN`")
+	}
+
+	if projectID == "" {
+		log.Fatal("You must specify a project ID in `env.METAL_PROJECT_ID`")
+	}
 
 	config := metal.NewConfiguration()
 	config.AddDefaultHeader("X-Auth-Token", authToken)
 	config.UserAgent = fmt.Sprintf(uaFmt, version, config.UserAgent)
 	client = metal.NewAPIClient(config)
-
-	projectID := os.Getenv(projectEnv)
 
 	// What to delete?
 	// - Devices
