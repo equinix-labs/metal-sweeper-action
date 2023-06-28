@@ -3,8 +3,9 @@
 Experimental Github Action for managing [Equinix Metal](https://metal.equinix.com) Projects.
 
 > :bulb: See also:
-> * [equinix-metal-project](https://github.com/equinix-labs/metal-project-action) action
-> * [equinix-metal-examples](https://github.com/equinix-labs/metal-actions-example) examples
+>
+> - [equinix-metal-project](https://github.com/equinix-labs/metal-project-action) action
+> - [equinix-metal-examples](https://github.com/equinix-labs/metal-actions-example) examples
 
 Given a Equinix Metal User API Token and a Project ID, the project will be deleted with all resources in that project.
 
@@ -14,11 +15,11 @@ See the [Equinix Metal Actions Example](https://github.com/equinix-labs/metal-ac
 
 ## Input
 
-With | Environment variable | Description
---- | --- | ---
-`authToken` | `METAL_AUTH_TOKEN` | (required) A Equinix Metal User API Token
-`projectID` | `METAL_PROJECT_ID` | (required) Project ID that will be deleted.
-`keep` | `KEEP_PROJECT` | When set to the default of `false`, the project will be deleted after all project contents are deleted.
+| With        | Environment variable | Description                                                                                             |
+| ----------- | -------------------- | ------------------------------------------------------------------------------------------------------- |
+| `authToken` | `METAL_AUTH_TOKEN`   | (required) A Equinix Metal User API Token                                                               |
+| `projectID` | `METAL_PROJECT_ID`   | (required) Project ID that will be deleted.                                                             |
+| `keep`      | `KEEP_PROJECT`       | When set to the default of `false`, the project will be deleted after all project contents are deleted. |
 
 ## Output
 
