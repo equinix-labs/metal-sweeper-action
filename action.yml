@@ -1,26 +1,25 @@
 ---
 # action.yml
-name: 'Equinix Metal Sweeper'
-description: 'The Equinix Metal Sweeper action deletes a project including all server resources in that project'
+name: "Equinix Metal Sweeper"
+description: "The Equinix Metal Sweeper action deletes a project including all server resources in that project"
 inputs:
-  keep:
-    description: 'Should the project be preserved after the contents are deleted?'
+  keepProject:
+    description: "Should the project be preserved after the contents are deleted?"
     required: false
-    default: 'false'
+    default: "false"
   projectID:
-    description: 'Equinix Metal Project UUID'
+    description: "Equinix Metal Project UUID"
     required: true
   authToken:
-    description: 'Equinix Metal API Auth Token'
+    description: "Equinix Metal API Auth Token"
     required: true
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
+  using: "docker"
+  image: "Dockerfile"
   env:
     METAL_PROJECT_ID: ${{ inputs.projectID }}
     KEEP_PROJECT: ${{ inputs.keepProject }}
     METAL_AUTH_TOKEN: ${{ inputs.authToken }}
 branding:
-  icon: 'trash-2'
-  color: 'green'
-
+  icon: "trash-2"
+  color: "green"
