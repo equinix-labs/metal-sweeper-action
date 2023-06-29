@@ -16,10 +16,6 @@ inputs:
 runs:
   using: "docker"
   image: "Dockerfile"
-  env:
-    METAL_PROJECT_ID: ${{ inputs.projectID }}
-    KEEP_PROJECT: ${{ inputs.keepProject }}
-    METAL_AUTH_TOKEN: ${{ inputs.authToken }}
 branding:
   icon: "trash-2"
   color: "green"
