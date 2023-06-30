@@ -16,22 +16,20 @@ var (
 )
 
 const (
-	tokenEnv       = "METAL_AUTH_TOKEN"
-	projectEnv     = "METAL_PROJECT_ID"
-	keepProjectEnv = "KEEP_PROJECT"
-	uaFmt          = "gh-action-metal-sweeper/%s %s"
+	uaFmt = "gh-action-metal-sweeper/%s %s"
 )
 
 func main() {
-	authToken := os.Getenv(tokenEnv)
-	projectID := os.Getenv(projectEnv)
+	authToken := os.Getenv("INPUT_AUTHTOKEN")
+	projectID := os.Getenv("INPUT_PROJECTID")
+	keepProject := os.Getenv("INPUT_KEEPPROJECT") == "true"
 
 	if authToken == "" {
-		log.Fatal("You must provide an auth token in `env.METAL_AUTH_TOKEN`")
+		log.Fatal("You must provide an auth token in `with.userToken`")
 	}
 
 	if projectID == "" {
-		log.Fatal("You must specify a project ID in `env.METAL_PROJECT_ID`")
+		log.Fatal("You must specify a project ID in `with.projectID`")
 	}
 
 	config := metal.NewConfiguration()
@@ -54,7 +52,7 @@ func main() {
 	}
 
 	for _, device := range devices {
-		fmt.Println("Deleting device", device.Hostname)
+		fmt.Println("Deleting device", device.GetHostname())
 		if _, err := client.DevicesApi.DeleteDevice(context.Background(), device.GetId()).Execute(); err != nil {
 			warn.Println("Could not delete device", err)
 		}
@@ -67,13 +65,16 @@ func main() {
 	}
 
 	for _, vlan := range vlans.VirtualNetworks {
-		fmt.Println("Deleting vlan", vlan.Description)
+		fmt.Println("Deleting vlan", vlan.GetDescription())
 		if _, _, err := client.VLANsApi.DeleteVirtualNetwork(context.Background(), vlan.GetId()).Execute(); err != nil {
 			warn.Println("Could not delete vlan", err)
 		}
 	}
 
-	if os.Getenv(keepProjectEnv) == "false" {
+	if keepProject {
+		fmt.Println("Skipping project deletion due to keepProject: ", keepProject)
+	} else {
+		fmt.Println("Deleting project", projectID)
 		_, err := client.ProjectsApi.DeleteProject(context.Background(), projectID).Execute()
 		if err != nil {
 			warn.Println("Could not delete project", err)
