@@ -53,7 +53,7 @@ func main() {
 
 	for _, device := range devices {
 		fmt.Println("Deleting device", device.GetHostname())
-		if _, err := client.DevicesApi.DeleteDevice(context.Background(), device.GetId()).Execute(); err != nil {
+		if _, err = client.DevicesApi.DeleteDevice(context.Background(), device.GetId()).Execute(); err != nil {
 			warn.Println("Could not delete device", err)
 		}
 	}
@@ -66,7 +66,7 @@ func main() {
 
 	for _, vlan := range vlans.VirtualNetworks {
 		fmt.Println("Deleting vlan", vlan.GetDescription())
-		if _, _, err := client.VLANsApi.DeleteVirtualNetwork(context.Background(), vlan.GetId()).Execute(); err != nil {
+		if _, _, err = client.VLANsApi.DeleteVirtualNetwork(context.Background(), vlan.GetId()).Execute(); err != nil {
 			warn.Println("Could not delete vlan", err)
 		}
 	}
@@ -75,7 +75,7 @@ func main() {
 		fmt.Println("Skipping project deletion due to keepProject: ", keepProject)
 	} else {
 		fmt.Println("Deleting project", projectID)
-		_, err := client.ProjectsApi.DeleteProject(context.Background(), projectID).Execute()
+		_, err = client.ProjectsApi.DeleteProject(context.Background(), projectID).Execute()
 		if err != nil {
 			warn.Println("Could not delete project", err)
 		}
@@ -95,7 +95,7 @@ func getAllProjectDevices(projectID string) ([]metal.Device, error) {
 
 		devices = append(devices, devicePage.Devices...)
 		if devicePage.Meta.GetLastPage() > devicePage.Meta.GetCurrentPage() {
-			page = page + 1
+			page++
 			continue
 		}
 
