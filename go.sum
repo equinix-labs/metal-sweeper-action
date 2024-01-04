@@ -4,3 +4,5 @@ github.com/equinix-labs/metal-go v0.10.0 h1:LPf/QlkaggeuAcvZJ/qrdk3dNZEhHYYqburf
 github.com/equinix-labs/metal-go v0.10.0/go.mod h1:SmxCklxW+KjmBLVMdEXgtFO5gD5/b4N0VxcNgUYbOH4=
 github.com/equinix-labs/metal-go v0.25.0 h1:AgMwoRYhfqPSkGu1FFLlyVCFBRy/xiBgnfiydMtw7jY=
 github.com/equinix-labs/metal-go v0.25.0/go.mod h1:SmxCklxW+KjmBLVMdEXgtFO5gD5/b4N0VxcNgUYbOH4=
+github.com/equinix-labs/metal-go v0.30.0 h1:xhq5lWXmqh7GC5VQQwZbfBVS9YhATMIAhsj6tWn693k=
+github.com/equinix-labs/metal-go v0.30.0/go.mod h1:sruTkJZCdlxxz5rXhfX3HFqyw8Gvqhd5eYn7O+YFZlw=
